@@ -1,0 +1,40 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background with transparency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ensures modal is above other content */
+}
+
+.modalContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%; /* Full width on small screens */
+}
+
+.modalContent h2 {
+    margin-top: 0; /* Remove default margin on the top */
+}
+
+.modalContent button {
+    margin-top: 15px; /* Spacing for the close button */
+    background-color: #0070f3; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modalContent button:hover {
+    background-color: #005bb5; /* Darker shade on hover */
+}

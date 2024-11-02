@@ -1,0 +1,43 @@
+.header {
+    @apply bg-[var(--primary)] py-6 px-4 text-white; /* Use the primary color variable */
+}
+
+.nav {
+    @apply py-2 flex items-center; /* Vertical padding, flex layout */
+}
+
+.container {
+    @apply flex justify-between items-center; /* Flex layout, spacing, and alignment */
+}
+
+.title {
+    @apply text-2xl; /* Font size */
+}
+
+.navList {
+    @apply flex space-x-10 mr-auto; /* Flex layout, spacing between items */
+}
+
+.navLink {
+    @apply text-white no-underline; /* Link color and remove underline */
+}
+
+.dropdown {
+    @apply relative; /* Positioning for dropdown */
+}
+
+.dropdownMenu {
+    @apply absolute left-0 top-full bg-[#2F4F4F] border border-[var(--primary)] z-10 min-w-[150px] shadow-lg; /* Dark background with shadow for contrast */
+}
+
+.dropdownLink {
+    @apply block py-2 px-4 text-white no-underline; /* White text for better visibility against dark background */
+}
+
+.dropdownLink:hover {
+    @apply bg-[var(--secondary)] text-[var(--primary)]; /* Secondary color on hover with primary text for contrast */
+}
+
+.loginItem {
+    @apply ml-36; /* Margin left for login item */
+}

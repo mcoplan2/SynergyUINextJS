@@ -1,0 +1,24 @@
+.modalOverlay {
+    @apply fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-70 flex items-center justify-center z-50; /* Semi-transparent background and centering */
+  }
+  
+  .modalContent {
+    @apply bg-white rounded-lg p-5 max-w-lg w-11/12 shadow-lg text-center; /* Modal styles */
+  }
+  
+  .modalContent h2 {
+    @apply text-red-600 mb-2; /* Red text for the title */
+  }
+  
+  .modalContent p {
+    @apply mb-5; /* Space below the message */
+  }
+  
+  .modalContent button {
+    @apply bg-blue-500 text-white border-none rounded px-4 py-2 cursor-pointer transition duration-300; /* Button styles */
+  }
+  
+  .modalContent button:hover {
+    @apply bg-blue-700; /* Darker blue on hover */
+  }
+  

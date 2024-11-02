@@ -1,0 +1,29 @@
+/* src/components/Footer.module.css */
+
+.footer {
+    @apply bg-[var(--primary)] text-white py-4 text-center; /* Use primary color variable, text color, vertical padding, center text */
+}
+
+.container {
+    @apply max-w-screen-xl mx-auto flex justify-between items-center; /* Max width, center container, flex layout, space between */
+}
+
+.nav {
+    @apply m-0; /* Reset margin */
+}
+
+.navList {
+    @apply list-none p-0 flex gap-8; /* Remove list style, padding, flex container, gap between items */
+}
+
+.navList li a {
+    @apply text-white no-underline; /* Link color, remove underline */
+}
+
+.navList li a:hover {
+    @apply underline; /* Underline on hover */
+}
+
+.copyright {
+    @apply ml-auto; /* Push copyright to the right */
+}
