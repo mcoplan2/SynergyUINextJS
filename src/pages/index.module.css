@@ -1,0 +1,42 @@
+/* src/styles/HomePage.module.css */
+
+/* Custom styles for the HomePage component */
+.header {
+    @apply bg-[var(--primary)] text-white p-4; /* Use primary color for header */
+}
+
+.headerTitle {
+    @apply text-3xl font-bold text-center; /* Header title styles */
+}
+
+.container {
+    @apply flex flex-col min-h-screen bg-[var(--neutral)]; /* Use neutral color for overall background */
+}
+
+.mainContent {
+    @apply flex-grow flex items-center justify-center; /* Center main content */
+}
+
+.card {
+    @apply bg-white shadow-lg rounded-lg p-8 w-96 text-center; /* Card styles */
+}
+
+.cardText {
+    @apply text-gray-700 mb-4; /* Text inside card */
+}
+
+.button {
+    @apply bg-[var(--primary)] text-white py-2 px-4 rounded hover:bg-[var(--secondary)] transition duration-200; /* Use secondary color for buttons */
+}
+
+.footer {
+    @apply bg-[var(--primary)] text-white p-4 text-center; /* Footer with primary color */
+}
+
+.ctaButton {
+    @apply bg-[var(--highlight)] text-white py-2 px-4 rounded hover:bg-[var(--accent)] transition duration-200; /* Use highlight color for call-to-action buttons */
+}
+
+.link {
+    @apply text-[var(--accent)] hover:underline; /* Use accent color for links */
+}

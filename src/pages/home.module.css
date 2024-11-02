@@ -1,0 +1,44 @@
+.container {
+    @apply flex flex-col min-h-screen bg-[var(--neutral)]; /* Use neutral color for overall background */
+}
+
+.title {
+    @apply text-3xl font-semibold mb-6;
+    color: var(--primary);
+}
+
+.section {
+    @apply mb-6;
+}
+
+.sectionTitle {
+    @apply text-2xl font-semibold mb-4;
+    color: var(--secondary);
+}
+
+.cardGrid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+.card {
+    @apply bg-white shadow-lg rounded-lg p-4;
+    background-color: var(--foreground); /* Light Gray background for cards */
+    width: 90%; /* Set a percentage for smaller width */
+    max-width: 300px; /* Set a maximum width for larger screens */
+    margin: 0 auto; /* Center the card horizontally */
+}
+
+.cardTitle {
+    @apply text-lg font-semibold;
+    color: var(--highlight); /* Dark Blue for card titles */
+}
+
+.cardText {
+    @apply text-gray-700; /* You can also replace this with a variable if needed */
+    color: var(--accent); /* Light Blue for card text */
+}
+
+.linkButton {
+    @apply mt-3 underline;
+    color: var(--primary); /* Teal for link button */
+}
