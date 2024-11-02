@@ -13,32 +13,44 @@
 
 .sectionTitle {
     @apply text-2xl font-semibold mb-4;
-    color: var(--secondary);
+    color: var(--primary); /* Use primary color for section titles */
 }
 
 .cardGrid {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4; /* Added lg grid-cols-3 */
 }
 
 .card {
     @apply bg-white shadow-lg rounded-lg p-4;
-    background-color: var(--foreground); /* Light Gray background for cards */
-    width: 90%; /* Set a percentage for smaller width */
+    background-color: var(--foreground); /* Use foreground for card background */
+    width: 50%; /* Set a percentage for smaller width */
     max-width: 300px; /* Set a maximum width for larger screens */
     margin: 0 auto; /* Center the card horizontally */
 }
 
 .cardTitle {
     @apply text-lg font-semibold;
-    color: var(--highlight); /* Dark Blue for card titles */
+    color: var(--highlight); /* Use highlight color for card titles */
 }
 
 .cardText {
     @apply text-gray-700; /* You can also replace this with a variable if needed */
-    color: var(--accent); /* Light Blue for card text */
+    color: var(--accent); /* Use accent color for card text */
 }
 
 .linkButton {
-    @apply mt-3 underline;
-    color: var(--primary); /* Teal for link button */
+    @apply mt-2 px-4 py-2 bg-[var(--primary)] text-white rounded hover:bg-[var(--secondary)] transition; /* Updated for button styles */
 }
+
+.wideCardGrid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 justify-center; /* Center the grid */
+}
+
+.wideCard {
+    @apply bg-white shadow-lg rounded-lg p-4;
+    background-color: var(--foreground);
+    width: 70%; /* Increased width */
+    max-width: 400px; /* Adjusted maximum width */
+    margin: 1rem auto; /* Center the card horizontally with some margin */
+}
+

@@ -1,50 +1,26 @@
 import Link from 'next/link';
-import styles from './home.module.css';
 import { useUser } from '../context/UserContext';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { getApprovedRequests, getNumberOfRequests } from '../api/requestApi';
 import Modal from '../components/Modal';
+import useAuthFetch from '../hooks/useAuthFetch';
+import { RefillRequest } from '../types/Request';
+import { getUnpaidPaymentsByUser } from '../api/paymentApi';
+import styles from './home.module.css';
 
 const HomePage = () => {
     const { user } = useUser();
-    const [numberRequests, setNumberRequests] = useState<number>(0);
-    const [approvedRequests, setApprovedRequests] = useState<any[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedRefill, setSelectedRefill] = useState<any>(null);
+    const { data: approvedRequests } = useAuthFetch(getApprovedRequests, user);
+    const { data: numberRequests } = useAuthFetch(getNumberOfRequests, user);
+    const { data: unpaidPayments } = useAuthFetch(getUnpaidPaymentsByUser, user);
 
-    useEffect(() => {
-        const fetchApprovedRequests = async () => {
-            if (user) {
-                try {
-                    const requests = await getApprovedRequests(user);
-                    setApprovedRequests(requests);
-                } catch (error) {
-                    console.error('Failed to fetch approved requests:', error);
-                }
-            }
-        };
+    if (!user) return <p className="text-center mt-10">Loading...</p>;
 
-        fetchApprovedRequests();
-    }, [user]);
-
-    useEffect(() => {
-        const fetchNumberOfRequests = async () => {
-            if (user) {
-                try {
-                    const count = await getNumberOfRequests(user);
-                    setNumberRequests(count);
-                } catch (error) {
-                    console.error('Failed to fetch number of requests:', error);
-                }
-            }
-        };
-
-        fetchNumberOfRequests();
-    }, [user]);
-
-    console.log(approvedRequests);
-
-    if (!user) return <p>Loading...</p>;
+    if (!approvedRequests) {
+        return <div className="text-center mt-10">Loading...</div>;
+    }
 
     const openModal = (refill: any) => {
         setSelectedRefill(refill);
@@ -62,30 +38,53 @@ const HomePage = () => {
 
             {/* Open Refills Section */}
             <div className={styles.section}>
-                <h2 className={styles.sectionTitle}>Current Medication</h2>
+            <div className={styles.cardGrid}>
+            <div className={styles.card}>
+            <div className={styles.wideCardGrid}>
+            <div className={styles.wideCard}>
+                <p className={styles.cardText}>
+                        You have <Link href="/requests" className={styles.link}>{numberRequests !== null ? numberRequests.length : 'Loading...'}</Link> Open Requests
+                </p>
+            </div>
+            <div className={styles.wideCard}>
+                 <p className={styles.cardText}>
+                    You have <Link href="/payments" className={styles.link}>{unpaidPayments !== null ? unpaidPayments.length : 'Loading...'}</Link> Unpaid Payments
+                    </p>
+            </div>
+            </div>
+            </div>
+            </div>
+
                 {approvedRequests.length > 0 ? (
                     <div className={styles.cardGrid}>
-                        {approvedRequests.map((refill) => (
+                        {approvedRequests.map((refill: RefillRequest) => (
                             <div key={refill.reqId.id} className={styles.card}>
                                 <h3 className={styles.cardTitle}>{refill.medicationId.name}</h3>
                                 <p className={styles.cardText}>Refill Date: {refill.updateDate}</p>
                                 <p className={styles.cardText}>Quantity: {refill.reqId.dosageCount}</p>
-                                <button className={styles.linkButton} onClick={() => openModal(refill)}>
+                                <button
+                                    className={styles.linkButton}
+                                    onClick={() => openModal(refill)}
+                                >
                                     View Refill Details
                                 </button>
                             </div>
                         ))}
                     </div>
                 ) : (
-                    <p className={styles.cardText}>No open refills at the moment.</p>
+                    <p className="mt-4 cardText">No open refills at the moment.</p>
                 )}
             </div>
 
-            <Modal isOpen={isModalOpen} onClose={closeModal} refillDetails={{
-                name: selectedRefill?.medicationId?.name,
-                updateDate: selectedRefill?.updateDate,
-                dosageCount: selectedRefill?.reqId?.dosageCount
-            }} />
+            <Modal 
+                isOpen={isModalOpen} 
+                onClose={closeModal} 
+                refillDetails={{
+                    name: selectedRefill?.medicationId?.name,
+                    updateDate: selectedRefill?.updateDate,
+                    dosageCount: selectedRefill?.reqId?.dosageCount
+                }} 
+            />
         </div>
     );
 };
