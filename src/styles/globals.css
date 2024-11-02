@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Define the color palette */
+  --primary: #003C71; /* Teal */
+  --secondary: #3CB371; /* Mint Green */
+  --accent: #2F4F4F; /* Light Blue */
+  --neutral: #D3D3D3; /* Light Gray */
+  --highlight: #F08080; /* Dark Blue */
+  --background: #ffffff; /* Default Background */
+  --foreground: #000000; /* Default Foreground */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a; /* Dark background */
+    --foreground: #ededed; /* Dark foreground */
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Additional styles to apply the color palette */
+a {
+  color: var(--primary); /* Links will use primary color */
+}
+
+a:hover {
+  color: var(--highlight); /* Links hover effect */
+}
+
+.header {
+  background-color: var(--primary); /* Header background */
+}
+
+.footer {
+  background-color: var(--primary); /* Footer background */
+}
+
+.button {
+  background-color: var(--secondary); /* Button background */
+  color: var(--foreground);
+  padding: 0.5rem 1rem; /* Button padding */
+  border: none;
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--highlight); /* Button hover effect */
+}
+
+.card {
+  background-color: var(--neutral); /* Card background */
+  padding: 1rem; /* Card padding */
+  border-radius: 8px; /* Rounded corners for card */
+}
