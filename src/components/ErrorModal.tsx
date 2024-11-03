@@ -1,6 +1,6 @@
 // ErrorModal.tsx
 import React from 'react';
-import styles from './errorModal.module.css';
+import styles from './ErrorModal.module.css';
 
 interface ErrorModalProps {
   message: string;

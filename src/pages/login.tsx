@@ -6,7 +6,7 @@ import ErrorModal from '../components/ErrorModal';
 import axios from 'axios';
 import { useUser } from '../context/UserContext';
 import { useRouter } from 'next/router';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const LoginPage: React.FC = () => {
