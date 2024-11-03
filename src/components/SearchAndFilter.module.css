@@ -1,0 +1,59 @@
+.searchContainer {
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center the items horizontally */
+    margin-bottom: 20px; /* Space below the search bar */
+}
+
+.searchBar {
+    width: 80%; /* Set the width to 80% */
+    max-width: 400px; /* Limit max width for larger screens */
+    padding: 10px;
+    border: 1px solid var(--neutral); /* Use neutral for border */
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.searchBar:focus {
+    border-color: var(--primary); /* Highlight border color on focus */
+}
+
+.letterFilter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the letter buttons */
+    margin-bottom: 20px;
+}
+
+.letterButton {
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: var(--primary); /* Use neutral for button background */
+    border: 1px solid var(--neutral); /* Use accent for border */
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.letterButton:hover {
+    background-color: var(--secondary); /* Change background on hover to primary */
+    color: var(--foreground); /* Change text color on hover */
+}
+
+.clearButton {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: var(--secondary); /* Use your secondary color */
+    border: none;
+    border-radius: 4px;
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.clearButton:hover {
+    background-color: var(--highlight); /* Change color on hover */
+}

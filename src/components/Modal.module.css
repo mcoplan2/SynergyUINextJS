@@ -1,3 +1,4 @@
+/* Modal Overlay Styles */
 .modalOverlay {
     position: fixed;
     top: 0;
@@ -11,22 +12,77 @@
     z-index: 1000; /* Ensures modal is above other content */
 }
 
+/* Modal Content Styles */
 .modalContent {
+    position: relative; /* Important for positioning the close button */
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     max-width: 500px;
     width: 100%; /* Full width on small screens */
+    text-align: center; /* Center content horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Close Button Styles */
+.modalCloseButton {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem; /* Slightly larger size */
+    cursor: pointer;
+    color: #555; /* Color for the close button */
+    transition: color 0.3s;
+}
+
+.modalCloseButton:hover {
+    color: #333; /* Darker color on hover for visibility */
+}
+
+
+/* Header in Modal */
 .modalContent h2 {
-    margin-top: 0; /* Remove default margin on the top */
+    margin-top: 0;
+    font-size: 1.5em;
+    text-align: center; /* Center-align the header */
+    color: #222; /* Dark color for the header */
 }
 
+/* Form and Spacing for Fields */
+.modalContent form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased spacing between form elements */
+}
+
+.modalContent label {
+    font-size: 1em;
+    color: #333;
+}
+
+/* Input Field Styling */
+.modalContent input[type="text"],
+.modalContent input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc; /* Visible border */
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333;
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+/* Button Styles */
 .modalContent button {
-    margin-top: 15px; /* Spacing for the close button */
-    background-color: #0070f3; /* Button color */
+    margin-top: 15px;
+    background-color: #0070f3;
     color: white;
     border: none;
     border-radius: 5px;
@@ -36,5 +92,7 @@
 }
 
 .modalContent button:hover {
-    background-color: #005bb5; /* Darker shade on hover */
+    background-color: #005bb5;
 }
+
+

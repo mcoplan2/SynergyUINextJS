@@ -1,0 +1,50 @@
+/* MultiStepForm.module.css */
+.formContainer {
+    @apply flex flex-col bg-[var(--foreground)] p-6 rounded-lg shadow-md max-w-lg mx-auto mt-8;
+}
+
+.sectionTitle {
+    @apply text-2xl font-semibold mb-2;
+    color: var(--primary);
+}
+
+.button {
+    @apply px-4 py-2 rounded hover:bg-[var(--highlight)] transition;
+}
+
+.backButton {
+    @apply bg-[var(--secondary)] text-white;
+}
+
+.nextButton, .finalButton {
+    @apply bg-[var(--primary)] text-white;
+}
+
+/* MultiStepForm.module.css */
+.inputField {
+    @apply w-full p-2 border mb-3 border-primary text-primary;
+}
+
+/* MultiStepForm.module.css */
+.summaryBody {
+    @apply w-full p-2 border mb-3 border-primary text-primary;
+}
+
+/* MultiStepForm.module.css */
+.summaryBody {
+    @apply w-full p-2 mb-3 text-[var(--primary)];
+    border: none; /* Add this line to remove any border */
+}
+
+.summarySection {
+    @apply w-full p-2 border mb-5 border-primary text-[var(--highlight)];
+}
+
+.summaryItem {
+    @apply w-full p-2 border mb-3 border-primary text-[var(--highlight)];
+}
+
+.summaryValue {
+    @apply text-base text-gray-900;
+}
+

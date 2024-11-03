@@ -48,13 +48,13 @@ const Header: React.FC = () => {
                             {medicationDropdownOpen && (
                                 <ul className={styles.dropdownMenu}>
                                     <li>
-                                        <Link href="/medication/view" className={styles.dropdownLink}>
-                                            View Medications
+                                        <Link href="/medications" className={styles.dropdownLink}>
+                                            All Medication
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/medication/add" className={styles.dropdownLink}>
-                                            Add Medication
+                                        <Link href="/medications/user" className={styles.dropdownLink}>
+                                            Your Medication
                                         </Link>
                                     </li>
                                 </ul>
@@ -69,12 +69,12 @@ const Header: React.FC = () => {
                             {refillsDropdownOpen && (
                                 <ul className={styles.dropdownMenu}>
                                     <li>
-                                        <Link href="/refills/view" className={styles.dropdownLink}>
-                                            View Refills
+                                        <Link href="/refills/user/open" className={styles.dropdownLink}>
+                                            Open Refills
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/refills/create" className={styles.dropdownLink}>
+                                        <Link href="/refills/user/new" className={styles.dropdownLink}>
                                             Create Refill
                                         </Link>
                                     </li>
@@ -90,14 +90,14 @@ const Header: React.FC = () => {
                             {paymentsDropdownOpen && (
                                 <ul className={styles.dropdownMenu}>
                                     <li>
-                                        <Link href="/payments/view" className={styles.dropdownLink}>
-                                            View Payments
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/payments/create" className={styles.dropdownLink}>
-                                            Make Payment
-                                        </Link>
+                                    <Link href="/payments/user/outstanding" className={styles.dropdownLink}>
+                                        Outstanding Payments
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/payments/user/history" className={styles.dropdownLink}>
+                                        Payment History
+                                    </Link>
                                     </li>
                                 </ul>
                             )}
@@ -111,14 +111,24 @@ const Header: React.FC = () => {
                             {adminDropdownOpen && (
                                 <ul className={styles.dropdownMenu}>
                                     <li>
-                                        <Link href="/admin/users" className={styles.dropdownLink}>
-                                            Manage Users
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/admin/settings" className={styles.dropdownLink}>
-                                            Settings
-                                        </Link>
+                                    <Link href="/admin/refills" className={styles.dropdownLink}>
+                                        All Refills
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/admin/payments" className={styles.dropdownLink}>
+                                        All Payments
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/admin/medications/new" className={styles.dropdownLink}>
+                                        Add Medication
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/admin/refills/pending" className={styles.dropdownLink}>
+                                        Pending Refills
+                                    </Link>
                                     </li>
                                 </ul>
                             )}
@@ -126,7 +136,7 @@ const Header: React.FC = () => {
                         }
                         {user &&
                         <li>
-                            <Link href="/profile" className={styles.navLink}>
+                            <Link href="/profile/edit" className={styles.navLink}>
                                 Profile
                             </Link>
                         </li>

@@ -1,0 +1,28 @@
+/* Table.module.css */
+.tableContainer {
+    @apply overflow-x-auto;
+}
+
+.table {
+    @apply min-w-full bg-white shadow-md rounded-lg overflow-hidden;
+}
+
+.tableHeader {
+    @apply bg-[var(--primary)] text-white uppercase text-sm leading-normal;
+}
+
+.tableHeaderCell {
+    @apply py-3 px-6 text-left;
+}
+
+.tableBody {
+    @apply text-gray-700 text-sm;
+}
+
+.tableRow {
+    @apply border-b border-gray-200 hover:bg-gray-100;
+}
+
+.tableCell {
+    @apply py-3 px-6 text-left;
+}
