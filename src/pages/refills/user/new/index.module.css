@@ -1,7 +1,5 @@
 .container {
     @apply flex flex-col min-h-screen bg-[var(--neutral)]; /* Use neutral color for overall background */
-    max-width: 1550px; /* Adjust this value as needed */
-    margin: 0 auto; /* Center the container */
 }
 
 .title {
@@ -20,14 +18,6 @@
 
 .cardGrid {
     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4; /* Added lg grid-cols-3 */
-}
-
-.cardLarge {
-    @apply bg-white shadow-lg rounded-lg p-4;
-    background-color: var(--foreground); /* Use foreground for card background */
-    width: 50%; /* Set a percentage for smaller width */
-    max-width: 1000px; /* Set a maximum width for larger screens */
-    margin: 0 auto; /* Center the card horizontally */
 }
 
 .card {
@@ -53,23 +43,14 @@
 }
 
 .wideCardGrid {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 justify-center; 
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 justify-center; /* Center the grid */
 }
 
 .wideCard {
-    @apply bg-white shadow-lg rounded-lg p-4 mx-auto; /* Center the card */
-    background-color: var(--foreground); /* Ensure you define --foreground in your palette */
-    margin-top: 1rem; /* Added top margin */
-    margin-bottom: 1rem; /* Added bottom margin */
+    @apply bg-white shadow-lg rounded-lg p-4;
+    background-color: var(--foreground);
+    width: 70%; /* Increased width */
+    max-width: 400px; /* Adjusted maximum width */
+    margin: 1rem auto; /* Center the card horizontally with some margin */
 }
 
-.amountDue {
-    @apply text-lg font-bold mt-1;
-    color: #333; /* Use if a darker color is needed */
-}
-
-.separator {
-    @apply my-4 w-full border-t;
-    background-color: var(--highlight); /* Space around the separator and width */
-    border-color: var(--highlight); /* Default color if no custom neutral specified */
-}

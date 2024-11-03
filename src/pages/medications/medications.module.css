@@ -1,0 +1,32 @@
+/* New styles for medication cards */
+.medicationList {
+    @apply flex flex-wrap justify-center; /* Center cards and allow wrapping */
+}
+
+.medicationItem {
+    @apply shadow-lg rounded-lg p-4 m-4; /* Card style */
+    max-width: 300px; /* Control maximum width */
+    width: 100%; /* Ensure full width within limits */
+    background-color: var(--foreground); /* Use foreground color for medication item */
+    transition: background-color 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Add hover effect to change background color */
+.medicationItem:hover {
+    background-color: var(--gray); /* Change background color on hover */
+}
+
+/* Typography styles for medication items */
+.medicationItem h2 {
+    @apply text-lg font-semibold; /* Title styling */
+    color: var(--highlight); /* Use highlight color for medication name */
+}
+
+.medicationItem p {
+    @apply text-gray-700; /* Text color for price and stock */
+    color: var(--accent); /* Use accent color for text */
+}
+
+.container {
+    @apply flex flex-col min-h-screen bg-[var(--neutral)]; /* Ensures the container takes full screen height */
+}

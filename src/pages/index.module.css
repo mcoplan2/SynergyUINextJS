@@ -40,3 +40,120 @@
 .link {
     @apply text-[var(--accent)] hover:underline; /* Use accent color for links */
 }
+
+
+.container {
+    padding: 20px; /* Padding for the overall container */
+    max-width: 1200px; /* Set a maximum width for the content */
+    margin: 0 auto; /* Center the container */
+}
+
+.introduction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    background-color: var(--primary); /* Background color for first section */
+    padding: 40px; /* Internal padding for content */
+    border-radius: 8px;
+}
+
+.introText {
+    flex: 1;
+}
+
+.introImage img {
+    width: 300px; /* Adjust as needed */
+    height: auto;
+}
+
+.authButton {
+    padding: 10px 20px;
+    background-color: var(--secondary);
+    color: var(--primary);
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.authButton:hover {
+     /* Change text color to white */
+    background-color: var(--highlight); /* Change background color to dark teal */
+}
+
+.facts {
+    margin-bottom: 40px;
+    background-color: var(--secondary); /* Background color for second section */
+    padding: 40px; /* Internal padding for content */
+    border-radius: 8px;
+}
+
+.factsGrid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.factItem {
+    flex: 1 1 calc(33% - 20px);
+    text-align: center;
+    margin: 10px;
+}
+
+.factItem img {
+    width: 80px; /* Adjust size */
+    height: auto;
+}
+
+.howItWorks {
+    margin-bottom: 40px;
+    background-color: var(--primary); /* Background color for third section */
+    padding: 40px; /* Internal padding for content */
+    border-radius: 8px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--primary);
+}
+
+.card {
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+    background-color: var(--neutral);
+    color: black;
+}
+
+.card:hover {
+    opacity: 0.9; /* Adjust opacity on hover */
+}
+
+
+
+.testimonials {
+    margin-bottom: 40px;
+    background-color: var(--secondary); /* Background color for fourth section */
+    color: var(--darkText); /* Text color for readability */
+    padding: 40px; /* Internal padding for content */
+    border-radius: 8px;
+}
+
+.reviews {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.reviewItem {
+    flex: 1 1 calc(25% - 20px);
+    margin: 10px;
+    text-align: center;
+}
+
+.reviewItem img {
+    width: 60px; /* Adjust size */
+    height: auto;
+    border-radius: 50%;
+}

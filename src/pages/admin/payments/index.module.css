@@ -1,0 +1,21 @@
+.container {
+    @apply flex flex-col min-h-screen bg-[var(--neutral)]; /* Use neutral color for overall background */
+}
+
+/* New styles for medication cards */
+.medicationList {
+    @apply flex flex-wrap justify-center; /* Center cards and allow wrapping */
+}
+
+.medicationItem {
+    @apply shadow-lg rounded-lg p-4 m-4; /* Card style */
+    max-width: 300px; /* Control maximum width */
+    width: 100%; /* Ensure full width within limits */
+    background-color: var(--secondary); /* Default background color for medication item */
+    transition: background-color 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Add hover effect to change background color */
+.medicationItem:hover {
+    background-color: var(--accent); /* Change background color on hover */
+}

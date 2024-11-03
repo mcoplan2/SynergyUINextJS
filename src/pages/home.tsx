@@ -34,12 +34,13 @@ const HomePage = () => {
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>Welcome, {user.firstName}!</h1>
 
             {/* Open Refills Section */}
             <div className={styles.section}>
-            <div className={styles.cardGrid}>
-            <div className={styles.card}>
+            <div className={styles.section}>
+                </div>
+            <div className={styles.cardLarge}>
+                <h1 className={styles.title}>Welcome, {user.firstName}!</h1>
             <div className={styles.wideCardGrid}>
             <div className={styles.wideCard}>
                 <p className={styles.cardText}>
@@ -53,6 +54,7 @@ const HomePage = () => {
             </div>
             </div>
             </div>
+            <div className={styles.cardGrid}>
             </div>
 
                 {approvedRequests.length > 0 ? (

@@ -6,6 +6,8 @@ import ErrorModal from '../components/ErrorModal';
 import axios from 'axios';
 import { useUser } from '../context/UserContext';
 import { useRouter } from 'next/router';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginPage: React.FC = () => {
     const { setUser } = useUser(); // Get setUser from context
@@ -38,6 +40,7 @@ const LoginPage: React.FC = () => {
                 
                 if (loggedInUser) {
                     setUser(loggedInUser); 
+                    toast.success('Logged in successfully!');
                     router.push('/home');
                 } else {
                     setError('User could not be authenticated. Please try again.');
@@ -45,7 +48,7 @@ const LoginPage: React.FC = () => {
                 }
             } else {
                 await register(formData);
-                // Optionally, set a message or redirect after successful registration
+                toast.success('You have been registered successfully!');
             }
         } catch (err) {
             if (axios.isAxiosError(err)) {
