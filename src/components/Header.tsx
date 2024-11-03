@@ -4,6 +4,7 @@ import styles from './Header.module.css';
 import { useUser } from '../context/UserContext';
 import { Role } from '../types/User';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 const Header: React.FC = () => {
     const [medicationDropdownOpen, setMedicationDropdownOpen] = useState(false);
@@ -33,11 +34,15 @@ const Header: React.FC = () => {
     return (
         <header className={styles.header}>
             <div className={styles.container}>
-                <h1 className={styles.title}>
-                    <Link href="/" className={styles.navLink}>
-                        My Pharmacy
-                    </Link>
-                </h1>
+            <Link href="/" className={styles.navLink}>
+                <Image
+                    src="/syn.png" // Update this path to your image's actual path
+                    alt="My Pharmacy Logo"
+                    width={50} // Adjust width as needed
+                    height={50} // Adjust height as needed
+                    className={styles.logo} // Optional additional styling
+                />
+            </Link>
                 <nav className={styles.nav}>
                     <ul className={styles.navList}>
                         {user &&

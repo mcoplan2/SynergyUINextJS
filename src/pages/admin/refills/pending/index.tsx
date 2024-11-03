@@ -3,14 +3,14 @@ import { useUser } from '@/src/context/UserContext';
 import useAuthFetch from '@/src/hooks/useAuthFetch';
 import React, { useEffect, useState } from 'react';
 import styles from './../../../home.module.css';
-import { getNumberOfRequests, approveRequest, denyRequest } from '@/src/api/requestApi'; // Ensure you have these functions
+import { getNumberOfRequests, approveRequest, denyRequest, getAllOpenRequests } from '@/src/api/requestApi'; // Ensure you have these functions
 import { ReqId } from '@/src/types/Request';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const PendingRequestsPage: React.FC = () => {
     const { user } = useUser();
-    const { data: allRequests, error } = useAuthFetch(getNumberOfRequests, user);
+    const { data: allRequests, error } = useAuthFetch(getAllOpenRequests, user);
     
     const [requests, setRequests] = useState<ReqId[]>([]);
     const [selectedRows, setSelectedRows] = useState<Set<number>>(new Set());

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './medications.module.css';
+import styles from './../home.module.css';
 import useAuthFetch from '@/src/hooks/useAuthFetch';
 import { useUser } from '@/src/context/UserContext';
 import { getAllMedication } from '@/src/api/medicationApi';
@@ -17,7 +17,9 @@ const MedicationsPage: React.FC = () => {
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>All Medications</h1>
+            <main className={styles.main}>
+            
+            <h1 className={styles.welcomeTitle}>All Medications</h1>
 
             {/* Use SearchAndFilter Component */}
             <SearchAndFilter
@@ -29,18 +31,23 @@ const MedicationsPage: React.FC = () => {
 
             {/* Medications List */}
             {Array.isArray(allMedication) && allMedication.length > 0 ? (
-                <ul className={styles.medicationList}>
+                <ul className={styles.cardGrid}>
                     {allMedication.map((medication: Medication) => (
-                        <li key={medication.id} className={styles.medicationItem}>
-                            <h2>{medication.name}</h2>
-                            <p><strong>Price:</strong> {medication.price}</p>
-                            <p><strong>Stock:</strong> {medication.stock}</p>
-                        </li>
+                        <div key={medication.id} className={styles.card}>
+                            <h3 className={styles.cardTitle}>{medication.name}</h3>
+                            <p className={styles.cardText}>ID: {medication.id}</p>
+                            <p className={styles.cardText}>Price: ${medication.price} per unit</p>
+                            <p className={styles.cardText}>Stock: {medication.stock}</p>
+                            <p className={styles.cardText}>Status: {medication.status}</p>
+                        </div>
                     ))}
                 </ul>
             ) : (
                 <p>No medications found.</p>
             )}
+
+
+            </main>
         </div>
     );
 };

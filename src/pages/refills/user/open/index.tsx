@@ -3,28 +3,32 @@ import { useUser } from "@/src/context/UserContext";
 import useAuthFetch from "@/src/hooks/useAuthFetch";
 import { getNumberOfRequests } from "@/src/api/requestApi";
 import { ReqId } from '@/src/types/Request';
+import styles from './../../../home.module.css';
 
 const OpenPrescriptionPage = () => {
     const { user } = useUser();
     const { data: allOpenRequests } = useAuthFetch(getNumberOfRequests, user);
 
     return (
-        <div className="container"> {/* Use the class name directly */}
-            <h1 className="title">Open Requests</h1> {/* Use the class name directly */}
+        <div className={styles.container}> 
+        <main className={styles.main}>
+            <h1 className={styles.welcomeTitle}>Pending Refills</h1> 
     
             {Array.isArray(allOpenRequests) && allOpenRequests.length > 0 ? (
-                <ul className="medicationList"> {/* Use the class name directly */}
+                <div className={styles.cardGrid}>
                     {allOpenRequests.map((request: ReqId) => (
-                        <li key={request.id} className="medicationItem"> {/* Use the class name directly */}
-                            <h2>{request.med.name}</h2>
-                            <p><strong>Dosage:</strong> {request.dosageCount}</p>
-                            <p><strong>Freq:</strong> {request.dosageFreq}</p>
-                        </li>
+                        <div key={request.id} className={styles.card}> 
+                        <h3 className={styles.cardTitle}>{request.med.name}</h3>
+                        <p className={styles.cardText}>Dosage: {request.dosageCount}</p>
+                        <p className={styles.cardText}>Freq: {request.dosageFreq}</p>
+                        <p className={styles.cardText}>Status: {request.requestType}</p>
+                        </div>
                     ))}
-                </ul>
+                </div>
             ) : (
                 <p>No Requests found.</p>
             )}
+            </main>
         </div>
     );
 };

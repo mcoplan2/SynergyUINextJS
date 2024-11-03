@@ -46,7 +46,8 @@ const OutstandingPaymentsPage: React.FC = () => {
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>Welcome, {user.firstName}!</h1>
+            <main className={styles.main}>
+            <h1 className={styles.welcomeTitle}>Outstanding Payments</h1>
 
             {/* Open Refills Section */}
             <div className={styles.section}>
@@ -55,6 +56,9 @@ const OutstandingPaymentsPage: React.FC = () => {
                         {unpaidPayments.map((payment: Payment) => (
                             <div key={payment.paymentId} className={styles.card}>
                                 <h3 className={styles.cardTitle}>{payment.medicationId.name}</h3>
+                                <p className={styles.cardText}>ID: {payment.paymentId}</p>
+                                <p className={styles.cardText}>First Name: {payment.user.firstName}</p>
+                                <p className={styles.cardText}>Last Name: {payment.user.lastName}</p>
                                 <p className={styles.cardText}>Quantity: {payment.reqId.dosageCount}</p>
                                 <p className={styles.cardText}>Freq: {payment.reqId.dosageFreq}</p>
                                 <p className={styles.cardText}>Cost: ${payment.amount}</p>
@@ -144,7 +148,7 @@ const OutstandingPaymentsPage: React.FC = () => {
                     <button type="submit">Pay</button>
                 </form>
             </PaymentModal>
-
+            </main>
         </div>
     );
 };

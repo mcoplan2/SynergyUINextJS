@@ -56,18 +56,39 @@ const HomePage: React.FC = () => {
                     <div className="grid md:grid-cols-3 gap-8">
                         <div className="text-center">
                             <div className="bg-white/10 rounded-lg p-6">
+                            <Image
+                                src="/check2.png"
+                                alt="Pharmacy"
+                                width={45}
+                                height={45}
+                                className="rounded-lg"
+                            />
                                 <h3 className="text-xl font-semibold mb-2">Low Prices</h3>
                                 <p>Competitive pricing on all medications</p>
                             </div>
                         </div>
                         <div className="text-center">
                             <div className="bg-white/10 rounded-lg p-6">
+                            <Image
+                                src="/check2.png"
+                                alt="Pharmacy"
+                                width={45}
+                                height={45}
+                                className="rounded-lg"
+                            />
                                 <h3 className="text-xl font-semibold mb-2">Refills</h3>
                                 <p>Easy and convenient prescription refills</p>
                             </div>
                         </div>
                         <div className="text-center">
                             <div className="bg-white/10 rounded-lg p-6">
+                            <Image
+                                src="/check2.png"
+                                alt="Pharmacy"
+                                width={45}
+                                height={45}
+                                className="rounded-lg"
+                            />
                                 <h3 className="text-xl font-semibold mb-2">24/7 Pharmacists</h3>
                                 <p>Professional support whenever you need it</p>
                             </div>

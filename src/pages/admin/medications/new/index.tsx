@@ -6,10 +6,12 @@ import styles from './index.module.css';
 const RefillPrescriptionPage = () => {
     return (
         <div className={styles.container}>
-        <div className="max-w-md mx-auto">
-            <h1 className="text-xl font-bold">Refill Prescription</h1>
+            <main className={styles.main}>
+            <div className="max-w-md mx-auto">
+            <h1 className={styles.title}>Add a Medication</h1>
             <MedicationMultiStepForm/>
         </div>
+        </main>
         </div>
     );
 };

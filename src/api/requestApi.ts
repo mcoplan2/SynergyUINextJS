@@ -24,6 +24,19 @@ export async function getAllRequests(appUser: AuthenticationResponse, selectedLe
     }
 }
 
+
+export async function getAllOpenRequests(appUser: AuthenticationResponse) {
+    const { token } = appUser;
+    try {
+        const tokenAPI = updateApi(token);
+        const res = await tokenAPI.get("/requests/type/OPEN")
+        return res.data; 
+    } catch(error) {
+        console.log(error)
+        throw error;
+    }
+}
+
 export async function getApprovedRequests(appUser: AuthenticationResponse) {
     const { username, token } = appUser; // Destructure appUser to get username and token
 

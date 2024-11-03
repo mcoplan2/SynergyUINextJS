@@ -1,75 +1,89 @@
 .container {
-    @apply flex flex-col min-h-screen bg-[var(--neutral)]; /* Use neutral color for overall background */
-    max-width: 1550px; /* Adjust this value as needed */
-    margin: 0 auto; /* Center the container */
+    @apply flex flex-col min-h-screen bg-gray-100;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.title {
-    @apply text-3xl font-semibold mb-6;
-    color: var(--primary);
+.header {
+    @apply bg-blue-900 text-white p-4 flex justify-between items-center;
 }
 
-.section {
-    @apply mb-6;
+.headerTitle {
+    @apply text-2xl font-bold;
+}
+
+.nav {
+    @apply flex space-x-4;
+}
+
+.navLink {
+    @apply text-white hover:text-blue-200 transition duration-200;
+}
+
+.main {
+    @apply flex-grow p-6;
+}
+
+.welcomeSection {
+    @apply mb-8;
+}
+
+.welcomeTitle {
+    @apply text-3xl font-semibold mb-4 text-blue-900;
+}
+
+.summaryCards {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+.summaryCard {
+    @apply bg-white shadow-md rounded-lg p-4;
+}
+
+.summaryTitle {
+    @apply text-lg font-semibold mb-2 text-blue-800;
+}
+
+.summaryContent {
+    @apply text-2xl font-bold text-blue-600;
+}
+
+.refillsSection {
+    @apply mb-8;
 }
 
 .sectionTitle {
-    @apply text-2xl font-semibold mb-4;
-    color: var(--primary); /* Use primary color for section titles */
+    @apply text-2xl font-semibold mb-4 text-blue-900;
 }
 
 .cardGrid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4; /* Added lg grid-cols-3 */
-}
-
-.cardLarge {
-    @apply bg-white shadow-lg rounded-lg p-4;
-    background-color: var(--foreground); /* Use foreground for card background */
-    width: 50%; /* Set a percentage for smaller width */
-    max-width: 1000px; /* Set a maximum width for larger screens */
-    margin: 0 auto; /* Center the card horizontally */
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
 }
 
 .card {
-    @apply bg-white shadow-lg rounded-lg p-4;
-    background-color: var(--foreground); /* Use foreground for card background */
-    width: 50%; /* Set a percentage for smaller width */
-    max-width: 300px; /* Set a maximum width for larger screens */
-    margin: 0 auto; /* Center the card horizontally */
+    @apply bg-white shadow-md rounded-lg p-4;
 }
 
 .cardTitle {
-    @apply text-lg font-semibold;
-    color: var(--highlight); /* Use highlight color for card titles */
+    @apply text-xl font-semibold mb-2 text-rose-600;
 }
 
 .cardText {
-    @apply text-gray-700; /* You can also replace this with a variable if needed */
-    color: var(--accent); /* Use accent color for card text */
+    @apply text-gray-600 mb-2;
 }
 
 .linkButton {
-    @apply mt-2 px-4 py-2 bg-[var(--primary)] text-white rounded hover:bg-[var(--secondary)] transition; /* Updated for button styles */
+    @apply mt-2 px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-800 transition duration-200;
 }
 
-.wideCardGrid {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 justify-center; 
+.noRefillsMessage {
+    @apply text-gray-600 italic;
 }
 
-.wideCard {
-    @apply bg-white shadow-lg rounded-lg p-4 mx-auto; /* Center the card */
-    background-color: var(--foreground); /* Ensure you define --foreground in your palette */
-    margin-top: 1rem; /* Added top margin */
-    margin-bottom: 1rem; /* Added bottom margin */
+.loadingContainer {
+    @apply flex items-center justify-center h-screen text-xl text-gray-600;
 }
 
-.amountDue {
-    @apply text-lg font-bold mt-1;
-    color: #333; /* Use if a darker color is needed */
-}
-
-.separator {
-    @apply my-4 w-full border-t;
-    background-color: var(--highlight); /* Space around the separator and width */
-    border-color: var(--highlight); /* Default color if no custom neutral specified */
+.link {
+    @apply text-blue-600 hover:underline;
 }

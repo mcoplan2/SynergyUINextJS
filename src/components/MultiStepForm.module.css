@@ -1,6 +1,8 @@
 /* MultiStepForm.module.css */
 .formContainer {
-    @apply flex flex-col bg-[var(--foreground)] p-6 rounded-lg shadow-md max-w-lg mx-auto mt-8;
+    @apply flex flex-col bg-[var(--neutral)] p-6 rounded-lg shadow-md max-w-lg mx-auto mt-8;
+    max-width: 500px;
+    border: 2px solid var(--highlight); /* This color matches Tailwind's gray-300 */
 }
 
 .sectionTitle {
@@ -22,12 +24,12 @@
 
 /* MultiStepForm.module.css */
 .inputField {
-    @apply w-full p-2 border mb-3 border-primary text-primary;
+    @apply w-full p-2 border mb-3 border-primary text-black;
 }
 
 /* MultiStepForm.module.css */
 .summaryBody {
-    @apply w-full p-2 border mb-3 border-primary text-primary;
+    @apply w-full p-2 border mb-3 border-primary text-black;
 }
 
 /* MultiStepForm.module.css */
@@ -41,10 +43,10 @@
 }
 
 .summaryItem {
-    @apply w-full p-2 border mb-3 border-primary text-[var(--highlight)];
+    @apply w-full p-2 border mb-3 border-primary text-black;
 }
 
 .summaryValue {
-    @apply text-base text-gray-900;
+    @apply text-base text-black;
 }
 

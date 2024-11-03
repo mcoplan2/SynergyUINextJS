@@ -7,20 +7,23 @@ import useAuthFetch from '../hooks/useAuthFetch';
 import { RefillRequest } from '../types/Request';
 import { getUnpaidPaymentsByUser } from '../api/paymentApi';
 import styles from './home.module.css';
+import { RefillFormData } from '../types/RefillPrescription';
 
 const HomePage = () => {
     const { user } = useUser();
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedRefill, setSelectedRefill] = useState<any>(null);
+    const [selectedRefill, setSelectedRefill] = useState<RefillRequest | null>(null);
     const { data: approvedRequests } = useAuthFetch(getApprovedRequests, user);
     const { data: numberRequests } = useAuthFetch(getNumberOfRequests, user);
     const { data: unpaidPayments } = useAuthFetch(getUnpaidPaymentsByUser, user);
 
-    if (!user) return <p className="text-center mt-10">Loading...</p>;
+    if (!user) return <div className={styles.loadingContainer}>Loading...</div>;
 
     if (!approvedRequests) {
-        return <div className="text-center mt-10">Loading...</div>;
+        return <div className={styles.loadingContainer}>Loading...</div>;
     }
+
+    console.log(approvedRequests)
 
     const openModal = (refill: any) => {
         setSelectedRefill(refill);
@@ -34,57 +37,64 @@ const HomePage = () => {
 
     return (
         <div className={styles.container}>
-
-            {/* Open Refills Section */}
-            <div className={styles.section}>
-            <div className={styles.section}>
-                </div>
-            <div className={styles.cardLarge}>
-                <h1 className={styles.title}>Welcome, {user.firstName}!</h1>
-            <div className={styles.wideCardGrid}>
-            <div className={styles.wideCard}>
-                <p className={styles.cardText}>
-                        You have <Link href="/requests" className={styles.link}>{numberRequests !== null ? numberRequests.length : 'Loading...'}</Link> Open Requests
-                </p>
-            </div>
-            <div className={styles.wideCard}>
-                 <p className={styles.cardText}>
-                    You have <Link href="/payments" className={styles.link}>{unpaidPayments !== null ? unpaidPayments.length : 'Loading...'}</Link> Unpaid Payments
-                    </p>
-            </div>
-            </div>
-            </div>
-            <div className={styles.cardGrid}>
-            </div>
-
-                {approvedRequests.length > 0 ? (
-                    <div className={styles.cardGrid}>
-                        {approvedRequests.map((refill: RefillRequest) => (
-                            <div key={refill.reqId.id} className={styles.card}>
-                                <h3 className={styles.cardTitle}>{refill.medicationId.name}</h3>
-                                <p className={styles.cardText}>Refill Date: {refill.updateDate}</p>
-                                <p className={styles.cardText}>Quantity: {refill.reqId.dosageCount}</p>
-                                <button
-                                    className={styles.linkButton}
-                                    onClick={() => openModal(refill)}
-                                >
-                                    View Refill Details
-                                </button>
-                            </div>
-                        ))}
+            <main className={styles.main}>
+                <section className={styles.welcomeSection}>
+                    <h2 className={styles.welcomeTitle}>Welcome, {user.firstName}!</h2>
+                    <div className={styles.summaryCards}>
+                        <div className={styles.summaryCard}>
+                            <h3 className={styles.summaryTitle}>Open Requests</h3>
+                            <p className={styles.summaryContent}>
+                                <Link href="/requests" className={styles.link}>
+                                    {numberRequests !== null ? numberRequests.length : 'Loading...'}
+                                </Link>
+                            </p>
+                        </div>
+                        <div className={styles.summaryCard}>
+                            <h3 className={styles.summaryTitle}>Unpaid Payments</h3>
+                            <p className={styles.summaryContent}>
+                                <Link href="/payments" className={styles.link}>
+                                    {unpaidPayments !== null ? unpaidPayments.length : 'Loading...'}
+                                </Link>
+                            </p>
+                        </div>
                     </div>
-                ) : (
-                    <p className="mt-4 cardText">No open refills at the moment.</p>
-                )}
-            </div>
+                </section>
+
+                <section className={styles.refillsSection}>
+                    <h2 className={styles.sectionTitle}>Approved Refills</h2>
+                    {approvedRequests.length > 0 ? (
+                        <div className={styles.cardGrid}>
+                            {approvedRequests.map((refill: RefillRequest) => (
+                                <div key={refill.reqId.id} className={styles.card}>
+                                    <h3 className={styles.cardTitle}>{refill.medicationId.name}</h3>
+                                    <p className={styles.cardText}>Refill Date: {refill.updateDate}</p>
+                                    <p className={styles.cardText}>Quantity: {refill.reqId.dosageCount}</p>
+                                    <p className={styles.cardText}>Frequency: {refill.reqId.dosageFreq} daily</p>
+                                    <button
+                                        className={styles.linkButton}
+                                        onClick={() => openModal(refill)}
+                                    >
+                                        View Refill Details
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <p className={styles.noRefillsMessage}>No open refills at the moment.</p>
+                    )}
+                </section>
+            </main>
 
             <Modal 
                 isOpen={isModalOpen} 
                 onClose={closeModal} 
                 refillDetails={{
-                    name: selectedRefill?.medicationId?.name,
-                    updateDate: selectedRefill?.updateDate,
-                    dosageCount: selectedRefill?.reqId?.dosageCount
+                    id: (selectedRefill as RefillRequest)?.reqId?.id,
+                    name: (selectedRefill as RefillRequest)?.medicationId?.name,
+                    updateDate: (selectedRefill as RefillRequest)?.updateDate,
+                    creationDate: (selectedRefill as RefillRequest)?.creationDate,
+                    dosageCount: (selectedRefill as RefillRequest)?.reqId?.dosageCount,
+                    dosageFreq: (selectedRefill as RefillRequest)?.reqId?.dosageFreq
                 }} 
             />
         </div>

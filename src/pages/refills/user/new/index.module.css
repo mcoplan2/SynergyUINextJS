@@ -1,15 +1,21 @@
 .container {
-    @apply flex flex-col min-h-screen bg-[var(--neutral)]; /* Use neutral color for overall background */
+    @apply flex flex-col min-h-screen bg-gray-100;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .title {
-    @apply text-3xl font-semibold mb-6;
-    color: var(--primary);
+    @apply text-3xl font-semibold mb-4 text-blue-900;
 }
 
 .section {
     @apply mb-6;
 }
+
+.main {
+    @apply flex-grow p-6;
+}
+
 
 .sectionTitle {
     @apply text-2xl font-semibold mb-4;

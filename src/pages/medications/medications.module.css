@@ -30,3 +30,4 @@
 .container {
     @apply flex flex-col min-h-screen bg-[var(--neutral)]; /* Ensures the container takes full screen height */
 }
+

@@ -134,6 +134,7 @@ const MultiStepForm = () => {
                         <h2 className={styles.sectionTitle}>Personal Information</h2>
                         <input className={styles.inputField} {...register('patientName')} placeholder="Patient's Name" required />
                         <input className={styles.inputField} {...register('patientAddress')} placeholder="Patient's Address" required />
+                        <h2 className={styles.summaryBody}>Date of Birth</h2>
                         <input className={styles.inputField} {...register('patientDOB')} placeholder="Patient's Date of Birth" type="date" required />
                     </div>
                 )}
