@@ -44,6 +44,19 @@ export async function getAllPayments(appUser: AuthenticationResponse) {
     }
 }
 
+export async function getEveryPayment(appUser: AuthenticationResponse) {
+  const { token } = appUser;
+
+  try {
+    const tokenAPI = updateApi(token);
+    const res = await tokenAPI.get("/payments");
+    return res.data; // Return the fetched payments
+  } catch (error) {
+    console.error('Error fetching all payments:', error);
+    throw error; // Rethrow the error for further handling
+  }
+}
+
 export async function updatePayment(appUser: AuthenticationResponse, payment: Payment) {
     const { username, token } = appUser;
 
@@ -54,14 +67,14 @@ export async function updatePayment(appUser: AuthenticationResponse, payment: Pa
             paymentId: payment.paymentId,
             amount: payment.amount,
             medicationId: {
-                id: payment.med.medId
+                id: payment.medicationId.id
             },
             payStatus: "FULLY_PAID",
             user: {
                 userId: userId
             },
             reqId: {
-                id: payment.req.requestId
+                id: payment.reqId.requestId
             },
         });
         return response.data; // Return the response data for further use

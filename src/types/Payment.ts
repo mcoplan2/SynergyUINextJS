@@ -12,9 +12,9 @@ export interface Payment {
     paymentId: number;
     amount: number;
     payStatus: PayStatus;
-    req: Request;
+    reqId: Request;
     user: AuthenticationResponse;
-    med: Medication;
+    medicationId: Medication;
     creationDate: Date;
     updateDate: Date;
 }

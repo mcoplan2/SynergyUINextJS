@@ -1,17 +1,18 @@
+import { CreateMedication } from "../types/Medication";
 import { AuthenticationResponse } from "../types/User";
 import { updateApi } from "../utils/API";
 
-export async function addMedication(appUser: AuthenticationResponse, data: any) {
+export async function addMedication(appUser: AuthenticationResponse, data: CreateMedication) {
     const { token } = appUser;
     const tokenAPI = updateApi(token);
 
     try {
         await tokenAPI.post('/medications', {
-            name: data.MedicationName,
-            stock: data.AmountInStock,
-            price: data.PricePerUnit,
-            type: data.Type,
-            status: data.Status,
+            name: data.name,
+            stock: data.stock,
+            price: data.price,
+            type: data.type,
+            status: data.status,
         });
     } catch (error) {
         console.error('Error adding medication:', error);
@@ -32,6 +33,19 @@ export async function getAllMedication(appUser: AuthenticationResponse, selected
     }
     try {
         const res = await tokenAPI.get(`/medications/filter${query ? `?${query}` : ''}`);
+        return res.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function getAllMedicationNoFilter(appUser: AuthenticationResponse) {
+    const { token } = appUser;
+    const tokenAPI = updateApi(token);
+
+   
+    try {
+        const res = await tokenAPI.get(`/medications`);
         return res.data;
     } catch (error) {
         console.log(error);

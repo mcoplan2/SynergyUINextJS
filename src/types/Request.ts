@@ -16,6 +16,12 @@ export interface Request {
     requestType: RequestType;        
 }
 
+export interface CreateRequest {         
+    dosageCount: number;        
+    dosageFreq: number;                     
+    med: Medication;               
+}
+
 export interface ReqId {
     dosageCount: number;
     dosageFreq: number;
