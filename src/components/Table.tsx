@@ -1,5 +1,5 @@
 // components/Table.tsx
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './Table.module.css';
 
 interface TableColumn {

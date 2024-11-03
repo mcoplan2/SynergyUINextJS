@@ -67,10 +67,9 @@ export async function getNumberOfRequests(appUser: AuthenticationResponse) {
 }
 
 export async function getRequestById(appUser: AuthenticationResponse, requestId: number) {
-    const { username, token } = appUser;
+    const { token } = appUser;
 
     try {
-        const userId = await getUserById(username); // Assuming this function is defined and imported
         const tokenAPI = updateApi(token);
         const res = await tokenAPI.get(`/requests/${requestId}`);
         return res.data; // Return the number of requests for further use

@@ -17,7 +17,7 @@ const MultiStepForm = () => {
     const [formData, setFormData] = useState<{
         dosagecount: number;
         freq: number;
-        medication: Medication | undefined; // allow for undefined initially
+        medication: Medication | undefined; 
         personalInfo: {
             patientName: string;
             patientAddress: string;

@@ -4,50 +4,14 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import styles from './MultiStepForm.module.css';
-import { addMedication, getAllMedicationNoFilter } from '../api/medicationApi';
-import useAuthFetch from '../hooks/useAuthFetch';
+import { addMedication } from '../api/medicationApi';
 import { useUser } from '../context/UserContext';
-import { Medication, MedicationStatus, MedicationType } from '../types/Medication';
-import { createRequest } from '../api/requestApi';
+import { MedicationInfo, MedicationStatus, MedicationType } from '../types/Medication';
 
 const MedicationMultiStepForm = () => {
     const router = useRouter();
     const [step, setStep] = useState(0);
-    const [selectedMedication, setSelectedMedication] = useState<Medication>();
-    const [formData, setFormData] = useState<{
-        basicInfo: {
-            medicationName: string;
-            formulation: string;
-            strength: string;
-            manufacturer: string;
-            ndcNumber: string;
-        };
-        regulatoryInfo: {
-            drugClassification: string;
-            scheduledClass: string;
-            warnings: string;
-            storageRequirements: string;
-            expirationDate: string;
-        };
-        pricingInfo: {
-            cost: number;
-            insuranceCoverage: string;
-        };
-        inventoryInfo: {
-            quantityInStock: number;
-            reorderLevel: number;
-            supplierInfo: string;
-        };
-        additionalInfo: {
-            indications: string;
-            dosageInstructions: string;
-            patientCounselingInfo: string;
-        };
-        documentation: {
-            lotNumber: string;
-            additionalDocs: string;
-        };
-    }>({
+    const [formData, setFormData] = useState<MedicationInfo>({
         basicInfo: {
             medicationName: '',
             formulation: '',
@@ -83,8 +47,7 @@ const MedicationMultiStepForm = () => {
     });
 
     const { user } = useUser();
-    const { data: allMedication } = useAuthFetch(getAllMedicationNoFilter, user);
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit } = useForm<MedicationInfo>();
 
     const nextStep = () => {
         setStep((prev) => prev + 1);
@@ -94,17 +57,17 @@ const MedicationMultiStepForm = () => {
         setStep((prev) => prev - 1);
     };
 
-    const onSubmit = async (data: any) => {
+    const onSubmit = async (data: MedicationInfo) => {
         if (step === 0) {
             // Step 0: Basic Information
             setFormData((prev) => ({
                 ...prev,
                 basicInfo: {
-                    medicationName: data.medicationName,
-                    formulation: data.formulation,
-                    strength: data.strength,
-                    manufacturer: data.manufacturer,
-                    ndcNumber: data.ndcNumber,
+                    medicationName: data.basicInfo.medicationName,
+                    formulation: data.basicInfo.formulation,
+                    strength: data.basicInfo.strength,
+                    manufacturer: data.basicInfo.manufacturer,
+                    ndcNumber: data.basicInfo.ndcNumber,
                 },
             }));
             nextStep();
@@ -113,11 +76,11 @@ const MedicationMultiStepForm = () => {
             setFormData((prev) => ({
                 ...prev,
                 regulatoryInfo: {
-                    drugClassification: data.drugClassification,
-                    scheduledClass: data.scheduledClass,
-                    warnings: data.warnings,
-                    storageRequirements: data.storageRequirements,
-                    expirationDate: data.expirationDate,
+                    drugClassification: data.regulatoryInfo.drugClassification,
+                    scheduledClass: data.regulatoryInfo.scheduledClass,
+                    warnings: data.regulatoryInfo.warnings,
+                    storageRequirements: data.regulatoryInfo.storageRequirements,
+                    expirationDate: data.regulatoryInfo.expirationDate,
                 },
             }));
             nextStep();
@@ -126,8 +89,8 @@ const MedicationMultiStepForm = () => {
             setFormData((prev) => ({
                 ...prev,
                 pricingInfo: {
-                    cost: Number(data.cost),
-                    insuranceCoverage: data.insuranceCoverage,
+                    cost: Number(data.pricingInfo.cost),
+                    insuranceCoverage: data.pricingInfo.insuranceCoverage,
                 },
             }));
             nextStep();
@@ -136,9 +99,9 @@ const MedicationMultiStepForm = () => {
             setFormData((prev) => ({
                 ...prev,
                 inventoryInfo: {
-                    quantityInStock: Number(data.quantityInStock),
-                    reorderLevel: Number(data.reorderLevel),
-                    supplierInfo: data.supplierInfo,
+                    quantityInStock: Number(data.inventoryInfo.quantityInStock),
+                    reorderLevel: Number(data.inventoryInfo.reorderLevel),
+                    supplierInfo: data.inventoryInfo.supplierInfo,
                 },
             }));
             nextStep();
@@ -147,13 +110,13 @@ const MedicationMultiStepForm = () => {
             setFormData((prev) => ({
                 ...prev,
                 additionalInfo: {
-                    indications: data.indications,
-                    dosageInstructions: data.dosageInstructions,
-                    patientCounselingInfo: data.patientCounseling,
+                    indications: data.additionalInfo.indications,
+                    dosageInstructions: data.additionalInfo.dosageInstructions,
+                    patientCounselingInfo: data.additionalInfo.patientCounselingInfo,
                 },
                 documentation: {
-                    lotNumber: data.lotNumber,
-                    additionalDocs: data.additionalDocs,
+                    lotNumber: data.documentation.lotNumber,
+                    additionalDocs: data.documentation.additionalDocs,
                 },
             }));
             nextStep();
@@ -227,11 +190,11 @@ const MedicationMultiStepForm = () => {
                 {step === 0 && (
                     <div>
                         <h2 className={styles.sectionTitle}>Basic Information</h2>
-                        <input className={styles.inputField} {...register('medicationName')} placeholder="Medication Name" required />
-                        <input className={styles.inputField} {...register('formulation')} placeholder="Formulation" required />
-                        <input className={styles.inputField} {...register('strength')} placeholder="Strength" required />
-                        <input className={styles.inputField} {...register('manufacturer')} placeholder="Manufacturer" required />
-                        <input className={styles.inputField} {...register('ndcNumber')} placeholder="NDC Number" required />
+                        <input className={styles.inputField} {...register('basicInfo.medicationName')} placeholder="Medication Name" required />
+                        <input className={styles.inputField} {...register('basicInfo.formulation')} placeholder="Formulation" required />
+                        <input className={styles.inputField} {...register('basicInfo.strength')} placeholder="Strength" required />
+                        <input className={styles.inputField} {...register('basicInfo.manufacturer')} placeholder="Manufacturer" required />
+                        <input className={styles.inputField} {...register('basicInfo.ndcNumber')} placeholder="NDC Number" required />
                     </div>
                 )}
 
@@ -239,11 +202,11 @@ const MedicationMultiStepForm = () => {
                 {step === 1 && (
                     <div>
                         <h2 className={styles.sectionTitle}>Regulatory Information</h2>
-                        <input className={styles.inputField} {...register('drugClassification')} placeholder="Drug Classification" required />
-                        <input className={styles.inputField} {...register('scheduledClass')} placeholder="Scheduled Class" required />
-                        <textarea className={styles.inputField} {...register('warnings')} placeholder="Warnings" required />
-                        <textarea className={styles.inputField} {...register('storageRequirements')} placeholder="Storage Requirements" required />
-                        <input className={styles.inputField} {...register('expirationDate')} placeholder="Expiration Date" type="date" required />
+                        <input className={styles.inputField} {...register('regulatoryInfo.drugClassification')} placeholder="Drug Classification" required />
+                        <input className={styles.inputField} {...register('regulatoryInfo.scheduledClass')} placeholder="Scheduled Class" required />
+                        <textarea className={styles.inputField} {...register('regulatoryInfo.warnings')} placeholder="Warnings" required />
+                        <textarea className={styles.inputField} {...register('regulatoryInfo.storageRequirements')} placeholder="Storage Requirements" required />
+                        <input className={styles.inputField} {...register('regulatoryInfo.expirationDate')} placeholder="Expiration Date" type="date" required />
                     </div>
                 )}
 
@@ -251,8 +214,8 @@ const MedicationMultiStepForm = () => {
                 {step === 2 && (
                     <div>
                         <h2 className={styles.sectionTitle}>Pricing Information</h2>
-                        <input className={styles.inputField} {...register('cost')} placeholder="Cost" type="number" required />
-                        <input className={styles.inputField} {...register('insuranceCoverage')} placeholder="Insurance Coverage" required />
+                        <input className={styles.inputField} {...register('pricingInfo.cost')} placeholder="Cost" type="number" required />
+                        <input className={styles.inputField} {...register('pricingInfo.insuranceCoverage')} placeholder="Insurance Coverage" required />
                     </div>
                 )}
 
@@ -260,9 +223,9 @@ const MedicationMultiStepForm = () => {
                 {step === 3 && (
                     <div>
                         <h2 className={styles.sectionTitle}>Inventory Information</h2>
-                        <input className={styles.inputField} {...register('quantityInStock')} placeholder="Quantity in Stock" type="number" required />
-                        <input className={styles.inputField} {...register('reorderLevel')} placeholder="Reorder Level" type="number" required />
-                        <input className={styles.inputField} {...register('supplierInfo')} placeholder="Supplier Information" required />
+                        <input className={styles.inputField} {...register('inventoryInfo.quantityInStock')} placeholder="Quantity in Stock" type="number" required />
+                        <input className={styles.inputField} {...register('inventoryInfo.reorderLevel')} placeholder="Reorder Level" type="number" required />
+                        <input className={styles.inputField} {...register('inventoryInfo.supplierInfo')} placeholder="Supplier Information" required />
                     </div>
                 )}
 
@@ -270,13 +233,14 @@ const MedicationMultiStepForm = () => {
                 {step === 4 && (
                     <div>
                         <h2 className={styles.sectionTitle}>Additional Information and Documentation</h2>
-                        <textarea className={styles.inputField} {...register('indications')} placeholder="Indications" required />
-                        <textarea className={styles.inputField} {...register('dosageInstructions')} placeholder="Dosage Instructions" required />
-                        <textarea className={styles.inputField} {...register('patientCounseling')} placeholder="Patient Counseling Information" required />
-                        <input className={styles.inputField} {...register('lotNumber')} placeholder="Lot Number" required />
-                        <input className={styles.inputField} {...register('additionalDocs')} placeholder="Additional Documentation" />
+                        <textarea className={styles.inputField} {...register('additionalInfo.indications')} placeholder="Indications" required />
+                        <textarea className={styles.inputField} {...register('additionalInfo.dosageInstructions')} placeholder="Dosage Instructions" required />
+                        <textarea className={styles.inputField} {...register('additionalInfo.patientCounselingInfo')} placeholder="Patient Counseling Information" required />
+                        <input className={styles.inputField} {...register('documentation.lotNumber')} placeholder="Lot Number" required />
+                        <input className={styles.inputField} {...register('documentation.additionalDocs')} placeholder="Additional Documentation" />
                     </div>
                 )}
+
 
                 {/* Final Step: Summary */}
                 {step === 5 && (

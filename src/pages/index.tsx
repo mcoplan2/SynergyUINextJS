@@ -108,7 +108,7 @@ const HomePage: React.FC = () => {
                         </div>
                         <div className="bg-white/10 rounded-lg p-6 text-center">
                             <h3 className="text-xl font-semibold mb-2">
-                                2) We'll Receive your Prescription
+                                2) We&apos;ll Receive your Prescription
                             </h3>
                             <p>Seamless prescription transfer</p>
                         </div>

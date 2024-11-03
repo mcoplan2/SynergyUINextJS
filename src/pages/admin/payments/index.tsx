@@ -18,7 +18,7 @@ const AllPaymentHistory: React.FC = () => {
         setSelectedRows(selectedRowIndices);
         console.log("Selected Row Indices:", Array.from(selectedRowIndices));
     };
-
+    
     // Define the columns for the table
     const columns = [
         { title: 'ID', accessor: 'paymentId' },
