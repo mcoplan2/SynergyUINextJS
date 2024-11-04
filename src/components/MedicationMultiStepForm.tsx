@@ -214,7 +214,15 @@ const MedicationMultiStepForm = () => {
                 {step === 2 && (
                     <div>
                         <h2 className={styles.sectionTitle}>Pricing Information</h2>
-                        <input className={styles.inputField} {...register('pricingInfo.cost')} placeholder="Cost" type="number" required />
+                        <input 
+                            className={styles.inputField} 
+                            {...register('pricingInfo.cost', { 
+                                required: true, 
+                                pattern: /^[0-9]*[.,]?[0-9]+$/ // Allows decimal numbers
+                            })} 
+                            placeholder="Cost" 
+                            type="text" 
+                        />
                         <input className={styles.inputField} {...register('pricingInfo.insuranceCoverage')} placeholder="Insurance Coverage" required />
                     </div>
                 )}
