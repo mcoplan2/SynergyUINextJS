@@ -18,3 +18,10 @@ export interface User {
     firstName: string;
     lastName: string;
 }
+
+export interface UserFormData {
+    username: string;
+    firstName: string;
+    lastName: string;
+    password?: string;
+}

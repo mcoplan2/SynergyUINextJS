@@ -2,7 +2,7 @@
 .formContainer {
     @apply flex flex-col bg-[var(--neutral)] p-6 rounded-lg shadow-md max-w-lg mx-auto mt-8;
     max-width: 500px;
-    border: 2px solid var(--highlight); /* This color matches Tailwind's gray-300 */
+    border: 2px solid var(--secondary); /* This color matches Tailwind's gray-300 */
 }
 
 .sectionTitle {
@@ -19,12 +19,17 @@
 }
 
 .nextButton, .finalButton {
-    @apply bg-[var(--primary)] text-white;
+    @apply bg-[var(--secondary)] text-white;
 }
 
-/* MultiStepForm.module.css */
 .inputField {
     @apply w-full p-2 border mb-3 border-primary text-black;
+}
+
+.inputField:focus {
+    @apply border-[var(--highlight)]; /* Change this to your desired focus color */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.2s; /* Smooth transition for border color change */
 }
 
 /* MultiStepForm.module.css */
@@ -39,11 +44,12 @@
 }
 
 .summarySection {
-    @apply w-full p-2 border mb-5 border-primary text-[var(--highlight)];
+    @apply w-full p-3 border mb-3 border-primary text-[var(--highlight)] font-bold text-lg; /* Adjust font size as needed */
 }
 
+
 .summaryItem {
-    @apply w-full p-2 border mb-3 border-primary text-black;
+    @apply mb-2 text-black;
 }
 
 .summaryValue {

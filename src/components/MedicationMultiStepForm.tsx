@@ -245,45 +245,51 @@ const MedicationMultiStepForm = () => {
                 {/* Final Step: Summary */}
                 {step === 5 && (
                     <div>
-                        <h2 className={styles.sectionTitle}>Summary</h2>
+                       <h2 className={styles.sectionTitle}>Summary</h2>
                         <div className={styles.summarySection}>
                             <h3>Basic Information</h3>
-                            <p>Medication Name: {formData.basicInfo.medicationName}</p>
-                            <p>Formulation: {formData.basicInfo.formulation}</p>
-                            <p>Strength: {formData.basicInfo.strength}</p>
-                            <p>Manufacturer: {formData.basicInfo.manufacturer}</p>
-                            <p>NDC Number: {formData.basicInfo.ndcNumber}</p>
                         </div>
+                        <p className={styles.summaryItem}>Medication Name: {formData.basicInfo.medicationName}</p>
+                        <p className={styles.summaryItem}>Formulation: {formData.basicInfo.formulation}</p>
+                        <p className={styles.summaryItem}>Strength: {formData.basicInfo.strength}</p>
+                        <p className={styles.summaryItem}>Manufacturer: {formData.basicInfo.manufacturer}</p>
+                        <p className={styles.summaryItem}>NDC Number: {formData.basicInfo.ndcNumber}</p>
+
                         <div className={styles.summarySection}>
                             <h3>Regulatory Information</h3>
-                            <p>Drug Classification: {formData.regulatoryInfo.drugClassification}</p>
-                            <p>Scheduled Class: {formData.regulatoryInfo.scheduledClass}</p>
-                            <p>Warnings: {formData.regulatoryInfo.warnings}</p>
-                            <p>Storage Requirements: {formData.regulatoryInfo.storageRequirements}</p>
-                            <p>Expiration Date: {formData.regulatoryInfo.expirationDate}</p>
                         </div>
+                        <p className={styles.summaryItem}>Drug Classification: {formData.regulatoryInfo.drugClassification}</p>
+                        <p className={styles.summaryItem}>Scheduled Class: {formData.regulatoryInfo.scheduledClass}</p>
+                        <p className={styles.summaryItem}>Warnings: {formData.regulatoryInfo.warnings}</p>
+                        <p className={styles.summaryItem}>Storage Requirements: {formData.regulatoryInfo.storageRequirements}</p>
+                        <p className={styles.summaryItem}>Expiration Date: {formData.regulatoryInfo.expirationDate}</p>
+
                         <div className={styles.summarySection}>
                             <h3>Pricing Information</h3>
-                            <p>Cost: ${formData.pricingInfo.cost}</p>
-                            <p>Insurance Coverage: {formData.pricingInfo.insuranceCoverage}</p>
                         </div>
+                        <p className={styles.summaryItem}>Cost: ${formData.pricingInfo.cost}</p>
+                        <p className={styles.summaryItem}>Insurance Coverage: {formData.pricingInfo.insuranceCoverage}</p>
+
                         <div className={styles.summarySection}>
                             <h3>Inventory Information</h3>
-                            <p>Quantity in Stock: {formData.inventoryInfo.quantityInStock}</p>
-                            <p>Reorder Level: {formData.inventoryInfo.reorderLevel}</p>
-                            <p>Supplier Info: {formData.inventoryInfo.supplierInfo}</p>
                         </div>
+                        <p className={styles.summaryItem}>Quantity in Stock: {formData.inventoryInfo.quantityInStock}</p>
+                        <p className={styles.summaryItem}>Reorder Level: {formData.inventoryInfo.reorderLevel}</p>
+                        <p className={styles.summaryItem}>Supplier Info: {formData.inventoryInfo.supplierInfo}</p>
+
                         <div className={styles.summarySection}>
                             <h3>Additional Information</h3>
-                            <p>Indications: {formData.additionalInfo.indications}</p>
-                            <p>Dosage Instructions: {formData.additionalInfo.dosageInstructions}</p>
-                            <p>Patient Counseling Info: {formData.additionalInfo.patientCounselingInfo}</p>
                         </div>
+                        <p className={styles.summaryItem}>Indications: {formData.additionalInfo.indications}</p>
+                        <p className={styles.summaryItem}>Dosage Instructions: {formData.additionalInfo.dosageInstructions}</p>
+                        <p className={styles.summaryItem}>Patient Counseling Info: {formData.additionalInfo.patientCounselingInfo}</p>
+
                         <div className={styles.summarySection}>
                             <h3>Documentation</h3>
-                            <p>Lot Number: {formData.documentation.lotNumber}</p>
-                            <p>Additional Documentation: {formData.documentation.additionalDocs}</p>
                         </div>
+                        <p className={styles.summaryItem}>Lot Number: {formData.documentation.lotNumber}</p>
+                        <p className={styles.summaryItem}>Additional Documentation: {formData.documentation.additionalDocs}</p>
+
                     </div>
                 )}
 

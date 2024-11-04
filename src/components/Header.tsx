@@ -141,7 +141,7 @@ const Header: React.FC = () => {
                         }
                         {user &&
                         <li>
-                            <Link href="/profile/edit" className={styles.navLink}>
+                            <Link href="/profile" className={styles.navLink}>
                                 Profile
                             </Link>
                         </li>

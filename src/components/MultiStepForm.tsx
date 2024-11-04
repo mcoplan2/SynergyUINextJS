@@ -178,34 +178,40 @@ const MultiStepForm = () => {
                 {/* Final Step: Summary */}
                 {step === 3 && (
                     <div>
-                        <h2 className={styles.sectionTitle}>Summary</h2>
+                       <h2 className={styles.sectionTitle}>Summary</h2>
                         <div className={styles.summarySection}>
                             <h3>Personal Information</h3>
-                            <p>Name: {formData.personalInfo.patientName}</p>
-                            <p>Address: {formData.personalInfo.patientAddress}</p>
-                            <p>Date of Birth: {formData.personalInfo.patientDOB}</p>
                         </div>
+                        <p className={styles.summaryItem}>Name: {formData.personalInfo.patientName}</p>
+                        <p className={styles.summaryItem}>Address: {formData.personalInfo.patientAddress}</p>
+                        <p className={styles.summaryItem}>Date of Birth: {formData.personalInfo.patientDOB}</p>
+
                         <div className={styles.summarySection}>
                             <h3>Medication Information</h3>
-                            <p>Dosage Count: {formData.dosagecount}</p>
-                            <p>Frequency: {formData.freq}</p>
-                            <p>Medication: {formData.medication?.name}</p>
                         </div>
+                        <p className={styles.summaryItem}>Dosage Count: {formData.dosagecount}</p>
+                        <p className={styles.summaryItem}>Frequency: {formData.freq}</p>
+                        <p className={styles.summaryItem}>Medication: {formData.medication?.name}</p>
+
                         <div className={styles.summarySection}>
                             <h3>Doctor and Insurance Information</h3>
-                            <p>Clinician: {formData.doctorInsuranceInfo.clinicianName}</p>
-                            <p>Insurance Info: {formData.doctorInsuranceInfo.insuranceInfo}</p>
                         </div>
-                        <div className={styles.summaryItem}>
+                        <p className={styles.summaryItem}>Clinician: {formData.doctorInsuranceInfo.clinicianName}</p>
+                        <p className={styles.summaryItem}>Address: {formData.doctorInsuranceInfo.clinicianAddress}</p>
+                        <p className={styles.summaryItem}>Insurance: {formData.doctorInsuranceInfo.insuranceInfo}</p>
+
+
+                        <div className={styles.summarySection}>
+                            Total Cost
+                        </div>
                             {selectedMedication ? (
                                 <div>
-                                    <p><strong>Medication Cost/dose: </strong> ${selectedMedication.price}</p>
-                                    <p><strong>Total Cost:</strong> ${selectedMedication.price * formData.dosagecount}</p>
+                                    <p className={styles.summaryItem}>Medication Cost/dose: ${selectedMedication.price}</p>
+                                    <p className={styles.summaryItem}>Total Cost: ${(selectedMedication.price * formData.dosagecount).toFixed(3)}</p>
                                 </div>
                             ) : (
                                 <p>No medication selected.</p>
                             )}
-                        </div>
                     </div>
                 )}
 
