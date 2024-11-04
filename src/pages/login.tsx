@@ -42,8 +42,12 @@ const LoginPage: React.FC = () => {
                     toast.error('User could not be authenticated. Please try again.');
                 }
             } else {
-                await register(formData);
-                toast.success('You have been registered successfully!');
+                try {
+                    await register(formData);
+                    toast.success('You have been registered successfully!');
+                } catch(err) {
+                    toast.error('An error occured, we could not create an account for you. Please try again.');
+                }
             }
         } catch (err) {
             if (axios.isAxiosError(err)) {
