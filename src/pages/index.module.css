@@ -69,8 +69,8 @@
 
 .authButton {
     padding: 10px 20px;
-    background-color: var(--secondary);
-    color: var(--primary);
+    background-color: var(--highlight);
+    color: white;
     border: none;
     cursor: pointer;
     margin-top: 20px;
@@ -78,7 +78,7 @@
 
 .authButton:hover {
      /* Change text color to white */
-    background-color: var(--highlight); /* Change background color to dark teal */
+    background-color: var(--secondary); /* Change background color to dark teal */
 }
 
 .facts {
