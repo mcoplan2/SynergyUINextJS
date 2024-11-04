@@ -29,38 +29,33 @@ const LoginPage: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+    
         try {
             if (isLogin) {
                 const loggedInUser = await login(formData); // `login` returns `AuthenticationResponse | null`
                 
                 if (loggedInUser) {
-                    setUser(loggedInUser); 
+                    setUser(loggedInUser);
                     toast.success('Logged in successfully!');
                     router.push('/home');
                 } else {
                     toast.error('User could not be authenticated. Please try again.');
                 }
             } else {
-                try {
-                    if(await register(formData)) {
-                        toast.success('You have been registered successfully!');
-                    }
-                } catch(err) {
-                    toast.error('An error occured, we could not create an account for you. Please try again.');
+                const registrationSuccess = await register(formData);
+                if (registrationSuccess) {
+                    toast.success('You have been registered successfully!');
+                } else {
+                    toast.error('An error occurred, we could not create an account for you. Please try again.');
                 }
             }
         } catch (err) {
-            if (axios.isAxiosError(err)) {
-                toast.error('An unexpected error occurred. Please try again.');
-            } else if (err instanceof Error) {
-                toast.error('An unexpected error occurred. Please try again.');
-            } else {
-                toast.error('An unexpected error occurred. Please try again.');
-            }
-            toast.error('An unexpected error occurred. Please try again.');
+            const errorMessage = axios.isAxiosError(err) || err instanceof Error
+                ? 'An unexpected error occurred. Please try again.'
+                : 'An unexpected error occurred.';
+    
+            toast.error(errorMessage);
         }
-        
     };
 
     return (
