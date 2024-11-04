@@ -108,7 +108,7 @@ Website Demo here: https://synergy-ui-next-js-ten.vercel.app/
 
 ## API Integration
 
-The frontend communicates with the Synergy Pharmacy backend API. Ensure that the backend server is running before using the frontend application. For API documentation and endpoints, please refer to the [Synergy Pharmaceutical API README](link-to-backend-readme).
+The frontend communicates with the Synergy Pharmacy backend API. Ensure that the backend server is running before using the frontend application. For API documentation and endpoints, please refer to the [Synergy Pharmaceutical API README](https://github.com/mcoplan2/SynergyPharmacyAPI).
 
 ## Contributing
 
