@@ -8,7 +8,7 @@ export async function getUserById(username: string): Promise<number | undefined>
         const { userId } = res.data;
         return userId;
     } catch (error) {
-        console.error(error);
+        throw new Error('Unable to fetch user by username');
     }   
 }
 
@@ -22,7 +22,7 @@ export async function login(user: User | null): Promise<AuthenticationResponse |
         const response = await API.post<AuthenticationResponse>("/authenticate", { username, password });
         return response.data;
     } catch (error) {
-        console.error('Login failed:', error);
+        throw new Error('Login failed. Please check your credentials and try again.');
     }
 }
 
@@ -38,6 +38,6 @@ export async function register(user: User | null): Promise<AuthenticationRespons
             password: user.password,
         });
     } catch (error) {
-        console.error('Registration failed:', error);
+        throw new Error('Registration failed. Please try again later.');
     }       
 }

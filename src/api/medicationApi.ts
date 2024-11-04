@@ -36,6 +36,7 @@ export async function getAllMedication(appUser: AuthenticationResponse, selected
         return res.data;
     } catch (error) {
         console.log(error);
+        throw error;
     }
 }
 
@@ -49,5 +50,6 @@ export async function getAllMedicationNoFilter(appUser: AuthenticationResponse) 
         return res.data;
     } catch (error) {
         console.log(error);
+        throw error;
     }
 }
