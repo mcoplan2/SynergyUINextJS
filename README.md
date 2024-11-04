@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Synergy Pharmacy Frontend
 
-## Getting Started
+**Project Overview**
 
-First, run the development server:
+Synergy Pharmacy Frontend is a modern web application built with **TypeScript**, **Next.js**, and **React**. This application serves as the user interface for Synergy Pharmacy, allowing customers and pharmacists to interact seamlessly with pharmacy services. Users can manage their medication requests, view available medications, and handle transactions in a user-friendly environment.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Screenshots
+### Landing Page
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Landing Page](https://github.com/user-attachments/assets/6ea6c26a-bc1f-45f0-a26d-f62e047905bf)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Login Page
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+![Login Page](https://github.com/user-attachments/assets/e97246cb-64aa-459b-9a47-16fc3b40cfb7)
 
-## Learn More
+### Register Page
 
-To learn more about Next.js, take a look at the following resources:
+![register](https://github.com/user-attachments/assets/25a7f0e2-642e-45d4-af99-933ada17994c)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Dashboard (Authed Page)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+![dashboard](https://github.com/user-attachments/assets/8cab83c5-e3e2-4f7e-987d-b1691acf65af)
 
-## Deploy on Vercel
+### All Medication Page
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![medication](https://github.com/user-attachments/assets/5a468b87-ee40-4a51-9207-12fc6ede3b9c)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Users Medication Page
+
+![yourmedication](https://github.com/user-attachments/assets/a4b71b8e-1ef9-438d-bcbb-575ade7db031)
+
+### Users Pending Refills Page
+
+![pendingrefills](https://github.com/user-attachments/assets/9518d2dd-e078-490e-be67-fa92618e75d3)
+
+### Create Refill Page
+
+![yourmedication](https://github.com/user-attachments/assets/a4b71b8e-1ef9-438d-bcbb-575ade7db031)
+
+### Outstanding Payments Page
+
+![outstandingpayments](https://github.com/user-attachments/assets/0fb4d19a-66f9-41c1-9455-db7358db8ed7)
+
+### Payment Page
+
+![paymentpage](https://github.com/user-attachments/assets/39676c21-2aa2-415e-8570-2841e767d026)
+
+### Payment History Page
+
+![paymenthistory](https://github.com/user-attachments/assets/92893235-0463-441f-8232-489ca9a4e578)
+
+### Edit Profile Page
+
+![editprofile](https://github.com/user-attachments/assets/a08013ec-a8ff-4df6-869d-1a062fd62939)
+
+
+### Admin View All Refills
+
+![adminallrefills](https://github.com/user-attachments/assets/eafffa53-daa5-4698-9e92-fb69e507517e)
+
+### Admin View All Payments
+
+![adminallpayments](https://github.com/user-attachments/assets/99440184-6317-4a3a-ac46-0595082f7206)
+
+### Admin View Add Medication
+
+![adminaddmedication](https://github.com/user-attachments/assets/1159d45d-d5d3-4a56-9c37-53cb427e4f9b)
+
+### Admin Approve/Deny Refills
+
+![adminpanelrefills](https://github.com/user-attachments/assets/7b62451b-9a20-4f44-a159-b49ba371f201)
+
+
+## Features
+
+### User Stories
+- **User Authentication**: Secure login and registration for customers and pharmacists.
+- **Medication Management**: Browse and view a comprehensive list of available medications.
+- **Request Handling**: Submit requests for refills and new prescriptions.
+- **Payment Processing**: Make payments for approved medication requests.
+- **Transaction History**: View a detailed history of refills and purchases.
+- **Pharmacist Tools**:
+  - Add, update, or remove medications from the inventory.
+  - Approve or reject medication requests from customers.
+  - Monitor stock levels and receive alerts for low inventory.
+
+## Technologies Used
+- **TypeScript**: Adds type safety and improves code quality.
+- **Next.js**: Framework for server-side rendering and static site generation.
+- **React**: Library for building user interfaces.
+- **Axios**: For making HTTP requests to the backend API.
+- **React Hook Form**: For handling forms and validation.
+
+
+### Prerequisites
+- Node.js (version 18 or later)
+- npm or Yarn
+
+## Usage
+
+- **Login/Register**: Users can create an account or log in to access their profiles.
+- **View Medications**: Navigate to the medications page to explore available items.
+- **Submit Requests**: Click on medications to request refills or new prescriptions.
+- **Complete Payments**: Follow the prompts to finalize payments for approved requests.
+- **Admin Functions**: Pharmacists can log in to manage inventory and customer requests.
+
+## API Integration
+
+The frontend communicates with the Synergy Pharmacy backend API. Ensure that the backend server is running before using the frontend application. For API documentation and endpoints, please refer to the [Synergy Pharmaceutical API README](link-to-backend-readme).
+
+## Contributing
+
+Contributions are welcome! If you have suggestions for improvements or new features, please create a pull request or open an issue in the repository.
