@@ -43,8 +43,9 @@ const LoginPage: React.FC = () => {
                 }
             } else {
                 try {
-                    await register(formData);
-                    toast.success('You have been registered successfully!');
+                    if(await register(formData)) {
+                        toast.success('You have been registered successfully!');
+                    }
                 } catch(err) {
                     toast.error('An error occured, we could not create an account for you. Please try again.');
                 }
