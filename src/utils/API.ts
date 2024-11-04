@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 
 // Define the base URL for your API
-const BASE_API_URL: string = "https://synergypharmacy-api-latest.onrender.com";
+const BASE_API_URL: string = "https://synergypharmacy-api-latest.onrender.com:8080";
 
 // Create a default Axios instance for public API calls
 let API: AxiosInstance = axios.create({
