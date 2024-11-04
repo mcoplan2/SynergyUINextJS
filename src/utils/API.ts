@@ -9,7 +9,7 @@ let API: AxiosInstance = axios.create({
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': 'https://synergy-ui-next-js-ten.vercel.app:3000',
         withCredentials: true,
     },
 });
