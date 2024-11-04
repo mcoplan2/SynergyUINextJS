@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 
 // Define the base URL for your API
-const BASE_API_URL: string = "https://synergypharmacy-api-latest.onrender.com:8080";
+const BASE_API_URL: string = "http://synergypharmacy-api-latest.onrender.com:8080";
 
 // Create a default Axios instance for public API calls
 let API: AxiosInstance = axios.create({
@@ -9,7 +9,7 @@ let API: AxiosInstance = axios.create({
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'https://synergy-ui-next-js-ten.vercel.app:3000',
+        'Access-Control-Allow-Origin': 'http://synergy-ui-next-js-ten.vercel.app:3000',
         withCredentials: true,
     },
 });
