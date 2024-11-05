@@ -92,6 +92,7 @@ Website Demo here: https://synergy-ui-next-js-ten.vercel.app/
 - **React**: Library for building user interfaces.
 - **Axios**: For making HTTP requests to the backend API.
 - **React Hook Form**: For handling forms and validation.
+- **Toast**:  Provides customizable notifications for better UX by showing feedback to users on actions (e.g., success messages, errors).
 
 
 ### Prerequisites
