@@ -4,7 +4,7 @@
 
 Synergy Pharmacy Frontend is a modern web application built with **TypeScript**, **Next.js**, and **React**. This application serves as the user interface for Synergy Pharmacy, allowing customers and pharmacists to interact seamlessly with pharmacy services. Users can manage their medication requests, view available medications, and handle transactions in a user-friendly environment.
 
-Website Demo here: https://synergy-ui-next-js-ten.vercel.app/
+Website Demo here: https://synergypharmacy.vercel.app/
 
 ## Screenshots
 ### Landing Page
