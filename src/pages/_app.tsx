@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { UserProvider } from '../context/UserContext';
+import KeepAlivePing from '../components/KeepAlivePing';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     return (
@@ -20,6 +21,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                         draggable
                         pauseOnFocusLoss
                     />
+                <KeepAlivePing />
                 <Component {...pageProps} />
                 <Footer />
             </UserProvider>
